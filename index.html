@@ -9,7 +9,17 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-
+		<script>
+			function generateMailtoLink() {
+			  var email = document.getElementById("email").value;
+			  var question = document.getElementById("question").value;
+		
+			  var mailtoLink = "mailto:" + encodeURIComponent(email) +
+							   "?subject=Question&body=" + encodeURIComponent(question);
+		
+			  document.getElementById("mailLink").href = mailtoLink;
+			}
+		</script>
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
@@ -60,22 +70,30 @@
 									<b>Follow us on WeChat!</b>
 								</header>
 							</article>
-							<div class="form-popup" id="myForm">
-								<form action="mailto:placeholder@yahoo.com" class="form-container">
-								  <h1>Ask a question</h1>
-							  
-								  <form action="mailto:someone@example.com" method="post" enctype="text/plain">
-									Name:<br>
-									<input type="text" name="name"><br>
-									E-mail:<br>
-									<input type="text" name="mail"><br>
-									Comment:<br>
-									<input type="text" name="comment" size="50"><br><br>
-									<input type="submit" value="Send">
-									<input type="reset" value="Reset">
-									</form>
-								</form>
-							  </div>
+							<form>
+								<h2>Ask a question</h2>
+								<textarea id="emailBody" rows="4" cols="50" placeholder="Ask your question here..."></textarea>
+							
+								<br>
+							
+								<button onclick="generateMailtoLink()">Submit</button>
+							</form>
+							
+							<script>
+								function generateMailtoLink() {
+								  var email = "attorney@aaglobalv.com";
+								  var subject = "aaglobalv.com - Question [DO NOT CHANGE TITLE]";
+								  var body = document.getElementById("emailBody").value;
+							
+								  var mailtoLink = "mailto:" + encodeURIComponent(email) +
+												   "?subject=" + encodeURIComponent(subject) +
+												   "&body=" + encodeURIComponent(body);
+							
+								  // Open the mailto link in a new tab/window
+								  window.open(mailtoLink, "_blank");
+								}
+							  </script>
+							
 						<!-- Posts -->
 							<section class="posts">
 								<article>
