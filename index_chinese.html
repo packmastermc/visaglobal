@@ -59,6 +59,29 @@
 									<b>微信二维码</b>
 								</header>
 							</article>
+							<form>
+								<h2>有问题吗?</h2>
+								<textarea id="emailBody" rows="4" cols="50" placeholder="..."></textarea>
+							
+								<br>
+							
+								<button onclick="generateMailtoLink()">提交</button>
+							</form>
+							
+							<script>
+								function generateMailtoLink() {
+								  var email = "attorney@aaglobalv.com";
+								  var subject = "问题 - [不要更改标题]";
+								  var body = document.getElementById("emailBody").value;
+							
+								  var mailtoLink = "mailto:" + encodeURIComponent(email) +
+												   "?subject=" + encodeURIComponent(subject) +
+												   "&body=" + encodeURIComponent(body);
+							
+								  // Open the mailto link in a new tab/window
+								  window.open(mailtoLink, "_blank");
+								}
+							  </script>
 						<!-- Posts -->
 							<section class="posts">
 								<article>
